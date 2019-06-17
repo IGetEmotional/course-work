@@ -4,8 +4,6 @@
 
 
 class Action {
-	
-
 public:
 	Map map;
 	Action(){

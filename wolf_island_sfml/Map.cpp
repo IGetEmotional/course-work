@@ -160,7 +160,7 @@ void Map:: eat() {
 	for (auto&i : wolfess) {
 		if (i.is_alive()) {
 			for (auto&k : bunnies) {
-				if (k.show_pos_x() == i.show_pos_x() and k.show_pos_y() == i.show_pos_y() and k.show_age()>1) {
+				if (k.show_pos_x() == i.show_pos_x() and k.show_pos_y() == i.show_pos_y()) {
 					k.die();
 					i.plus_health();
 					break;
@@ -171,7 +171,7 @@ void Map:: eat() {
 	for (auto&i : wolfs) {
 		if (i.is_alive()) {
 			for (auto&k : bunnies) {
-				if (k.show_pos_x() == i.show_pos_x() and k.show_pos_y() == i.show_pos_y() and k.show_age()>1) {
+				if (k.show_pos_x() == i.show_pos_x() and k.show_pos_y() == i.show_pos_y()) {
 					k.die();
 					i.plus_health();
 					break;
@@ -227,4 +227,25 @@ int Map:: return_wolfes() {
 }
 int Map:: return_wolfess() {
 	return wolfess.size();
+
+
+}
+
+bool Map:: bunny_here(int x, int y) {
+	if (an[x][y].buns != 0)
+		return true;
+	else
+		return false;
+}
+bool Map:: wolf_here(int x, int y) {
+	if (an[x][y].wolfies != 0)
+		return true;
+	else
+		return false;
+}
+bool Map:: wolfess_here(int x, int y) {
+	if (an[x][y].girl_wolfies != 0)
+		return true;
+	else
+		return false;
 }

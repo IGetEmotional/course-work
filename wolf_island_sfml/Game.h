@@ -16,7 +16,6 @@ class Game{
 	sf::Sprite sWolfess;
 	sf::Texture reklama;
 	sf::Sprite sReklama;
-	sf::Clock clock;
 public:
 	Game():mWindow(sf::VideoMode(1366, 768), "Wolf Island 2") {
 		action;
@@ -55,14 +54,18 @@ public:
 				}
 				if (event.type == sf::Event::Closed)
 					mWindow.close();
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
+					do {
+						continue;
+					} while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
+				}
 				
 					action.do_action();
 					this->draw_map();
 			
-				if(this->action.ending())
-					system("pause");
-	//			while (time < 100000)
-	//				time++;
+					if (this->action.ending())
+						system("Pause");
+
 			}
 		}
 	}

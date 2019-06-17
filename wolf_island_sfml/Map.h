@@ -24,19 +24,35 @@ class Map {
 public:
 
 
+	//Map() {
+	//	vector<Bunny>bunnies;
+	//	vector<She_Wolf>wolfess;
+	//	vector<Wolf>wolfs;
+	//	for (int t = 0; t < 2; t++) {
+	//		this->add_bunny();
+
+	//	}
+	//	for (int i = 0; i < 1; i++) {
+	//		this->add_she_wolf();
+	//		this->add_wolf();
+	//	}
+	//	this->making_it_zero();
+	//}
+	
+	//custom check
 	Map() {
 		vector<Bunny>bunnies;
 		vector<She_Wolf>wolfess;
 		vector<Wolf>wolfs;
-		for (int t = 0; t < 2; t++) {
-			this->add_bunny();
-
+		for (int i = 8; i < 12; i++) {
+			for (int k = 8; k < 12; k++) {
+				this->bunnies.push_back(Bunny(i, k));
+			}
 		}
-		for (int i = 0; i < 1; i++) {
-			this->add_she_wolf();
-			this->add_wolf();
+		for (int i = 0; i < 20; i++) {
+			this->wolfs.push_back(Wolf(7, 8));
+			this->wolfess.push_back(She_Wolf(11, 10));
 		}
-		this->making_it_zero();
 	}
 
 
@@ -65,22 +81,7 @@ public:
 	int return_bunnies();
 	int return_wolfes();
 	int return_wolfess();
-	bool bunny_here(int x, int y) {
-		if (an[x][y].buns != 0)
-			return true;
-		else
-			return false;
-	}
-	bool wolf_here(int x, int y) {
-		if (an[x][y].wolfies != 0)
-			return true;
-		else
-			return false;
-	}
-	bool wolfess_here(int x, int y) {
-		if (an[x][y].girl_wolfies != 0)
-			return true;
-		else
-			return false;
-	}
+	bool bunny_here(int x, int y);
+	bool wolf_here(int x, int y);
+	bool wolfess_here(int x, int y);
 };
